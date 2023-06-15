@@ -3,7 +3,7 @@
 Dieses Paket basiert auf einem Projekt aus dem M.Sc Geoinformatik im Modul "GEOG 419 - Modulare Programmierung in der FE" der Friedrich-Schiller-Universität Jena und wurde von Max Marquardt und Justin Volkert entwickelt. 
 Es enthält Module/Algorithmen zum Herunterladen, Entpacken, Vorverarbeiten und Visualisieren von Sentinel-1-Bildern. Ein detaillierterer Überblick wird unten gegeben:
 
--	Download einer bereitgestellten .zip-Datei in ein zuvor definiertes Verzeichnis 
+-	Download einer .zip-Datei in ein zuvor definiertes Verzeichnis 
 -	Entpacken der heruntergeladenen .zip-Datei 
 -	Lesen der Datei in ein numpy Array 
 -	Logarithmische Skalierung der Rückstreuintensitäten

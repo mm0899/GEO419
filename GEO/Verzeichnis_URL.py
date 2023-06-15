@@ -1,3 +1,4 @@
+# Import Pakete
 import os
 import requests
 
@@ -9,6 +10,7 @@ def url_path():
     valid_url = False
     valid_path = False
 
+    # Abfrage des Pfads
     while not valid_path:
         print('Bitte geben Sie den Pfad des Arbeitsverzeichnisses an.')
         print('Hinweis: Beispielpfad (Windows): "C:/Ordner/".')
@@ -19,6 +21,7 @@ def url_path():
         else:
             print('Arbeitsverzeichnis = ungültig.\n')
 
+    # Abfrage der URL
     while not valid_url:
         print('Bitte geben Sie die URL an.')
         print('Hinweis: Die URL muss mit "http" anfangen und mit ".zip" enden.')
@@ -32,4 +35,5 @@ def url_path():
         if is_valid_url:
             valid_url = True
 
+    # Rückgabe von URL und Pfad
     return url, path

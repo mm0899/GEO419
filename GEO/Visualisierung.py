@@ -1,3 +1,4 @@
+# Import Pakete
 import os
 import glob
 import numpy as np
@@ -11,11 +12,14 @@ from matplotlib.ticker import FormatStrFormatter
 def plot(path):
     # Diese Funktion dient der Darstellung des Ergebnisses.
     print(f'Die Funktion "Visualisierung" wurde gestartet.')
+
+    # Festlegung Ausgabeordner
     proc_folder = 'Bild_prozessiert'
     raster_path = os.path.join(path, proc_folder)
     file_list = glob.glob(os.path.join(raster_path, '*.tif'))
     file_list = [w.replace('\\', '/') for w in file_list]
 
+    # Verfügbare Colormaps
     available_cmaps = ["Accent", "Accent_r", "Blues", "Blues_r", "BrBG", "BrBG_r", "BuGn", "BuGn_r", "BuPu", "BuPu_r",
                        "CMRmap", "CMRmap_r", "Dark2", "Dark2_r", "GnBu", "GnBu_r", "Greens", "Greens_r", "Greys",
                        "Greys_r",
@@ -60,8 +64,8 @@ def plot(path):
         print('\n')
         cmap_name = input('Eingabe: ')
 
+    # Festlegung der Visualisierungs-Attribute
     for file_path in file_list:
-        # file_name = os.path.basename(file_path)[:-4]
 
         raster = rio.open(file_path)
         data = raster.read()
@@ -77,6 +81,7 @@ def plot(path):
         ax.yaxis.set_major_formatter(FormatStrFormatter('%.0f'))
         colb.set_label('Rückstreuung in dB')
 
+        # Visualisierung und Speichern
         show(raster, transform=raster.transform, vmin=min_per, vmax=max_per, ax=ax, cmap=cmap, title=title)
         plt.tight_layout()
         plt.savefig(os.path.join(path, f'{title}.pdf'), bbox_inches='tight')

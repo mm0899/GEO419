@@ -11,6 +11,6 @@ def main():
     Visualisierung.plot(path)
     print(f"\nProzesse abgeschlossen!\n")
 
-
+# Aufruf der Hauptfunktion "main"
 if __name__ == '__main__':
     main()

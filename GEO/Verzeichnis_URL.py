@@ -9,17 +9,26 @@ def url_path():
     print(f'Die Funktion "Verzeichnis_URL" wurde gestartet.')
     valid_url = False
     valid_path = False
+    special_characters = '\/:*?"<>|'
 
     # Abfrage des Pfads
     while not valid_path:
         print('Bitte geben Sie den Pfad des Arbeitsverzeichnisses an.')
-        print('Hinweis: Beispielpfad (Windows): "C:/Ordner/".')
+        print('Hinweis: Beispielpfad (Windows): "C:Users\Documents\Directory".')
+        print('Hinweis: Beispielpfad (Linux): /home/user/Documents/Directory".')
+        print(f'Hinweis: Sonderzeichen wie {special_characters} sind im Pfadnamen nicht erlaubt.')
         path = input('Eingabe: ')
         if os.path.exists(path):
             print('Arbeitsverzeichnis = gültig.\n')
             valid_path = True
+        # Erstellen eines neuen Arbeitsverzeichnisses
         else:
-            print('Arbeitsverzeichnis = ungültig.\n')
+            try:
+                os.makedirs(path)
+                print(f'Arbeitsverzeichnis "{path}" wurde erfolgreich erstellt.\n')
+                valid_path = True
+            except OSError:
+                print(f'Fehler beim Erstellen des Arbeitsverzeichnisses "{path}". Bitte überprüfen Sie den Pfad.\n')
 
     # Abfrage der URL
     while not valid_url:

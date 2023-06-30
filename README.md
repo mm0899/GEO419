@@ -27,3 +27,4 @@ $ conda activate GEO419
 $ pip install gdal
 $ pip install rasterio
 ```
+Die Software kann nun durch Ausführen der "Hauptfunktion.py" gestartet werden.
